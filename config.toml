@@ -23,7 +23,7 @@ paginate = 7
 canonifyurls = true
 
 [permalinks]
-  post = "/:year/:month/:slug/"
+  post = "/:slug/"
 
 [taxonomies]
   tag = "tags"
@@ -32,9 +32,9 @@ canonifyurls = true
 
 [author]
   name = "Kido Naoto"
-  bio = "Software/Data engineer in Tokyo."
+  bio = "I'm a software/data engineer in Tokyo."
   job = "Software/Data engineer"
-  location = "Tokyo"
+  location = "Tokyo, Japan"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   # gravatarEmail = "thibaud.lepretre@gmail.com"
   # Your profile picture
@@ -55,7 +55,7 @@ canonifyurls = true
 [[menu.main]]
   weight = 2
   identifier = "about"
-  name = "About me"
+  name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-user\"></i>"
   url = "/about"
 [[menu.main]]
