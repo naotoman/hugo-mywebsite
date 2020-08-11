@@ -5,6 +5,7 @@ thumbnailImagePosition: left
 metaAlignment: left
 coverMeta: out
 date: 2020-08-10T18:15:27+09:00
+showActions:    false
 categories:
 - blog
 tags:
