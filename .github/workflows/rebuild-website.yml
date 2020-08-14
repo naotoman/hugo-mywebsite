@@ -23,6 +23,7 @@ jobs:
         repository: naotoman/naotoman.github.io
         ref: test
         path: public
+        persist-credentials: false
     - name: clean-public
       working-directory: ./public
       run: |
