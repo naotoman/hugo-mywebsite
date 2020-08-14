@@ -40,6 +40,7 @@ jobs:
       working-directory: ./public
       env:
         EMAIL: ${{ secrets.EMAIL }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo deploy
         pwd
@@ -48,5 +49,4 @@ jobs:
         git config user.email "$EMAIL"
         git add .
         git commit -m "rebuilding site $(date '+%Y/%m/%d %H:%M:%S')"
-        git push
-        
+        git push https://$(GITHUB_ACTOR):$(GITHUB_TOKEN)@github.com/naotoman/naotoman.github.io.git
