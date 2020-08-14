@@ -1,7 +1,8 @@
 name: rebuild-website
 
-on: push
-  branches:
+on:
+  push:
+    branches:
     - test
 
 jobs:
