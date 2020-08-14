@@ -14,7 +14,7 @@ jobs:
       run: |
         echo install-hugo
         pwd
-        wget -y https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_0.74.3_Linux-64bit.deb
+        wget https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_0.74.3_Linux-64bit.deb
         sudo apt install ./hugo_0.74.3_Linux-64bit.deb
     - uses: actions/checkout@v2
       with:
