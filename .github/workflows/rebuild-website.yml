@@ -3,47 +3,41 @@ name: rebuild-website
 on:
   push:
     branches:
-    - test
+    - master
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: install-hugo
+      working-directory: /tmp
       run: |
-        echo install-hugo
-        pwd
-        wget -O /tmp https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_0.74.3_Linux-64bit.deb
-        sudo apt install /tmp/hugo_0.74.3_Linux-64bit.deb
+        wget https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_0.74.3_Linux-64bit.deb
+        sudo apt install ./hugo_0.74.3_Linux-64bit.deb
     - uses: actions/checkout@v2
       with:
-        ref: test
         submodules: true
     - uses: actions/checkout@v2
       with:
         repository: naotoman/naotoman.github.io
-        ref: test
         path: public
+        persist-credentials: false
     - name: clean-public
       working-directory: ./public
       run: |
-        echo clean-public
-        pwd
         ls -A | grep -v -E '^.git$|^.gitignore$|^CNAME$' | xargs rm -rf
+        ls -A
     - name: run-hugo
       run: |
-        echo run-hugo
-        pwd
         hugo
     - name: deploy
       working-directory: ./public
+      env:
+        EMAIL: ${{ secrets.EMAIL }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       run: |
-        echo deploy
-        pwd
-        git branch
         git config user.name "Naoto"
-        git config user.email "{{ }}"
+        git config user.email "$EMAIL"
         git add .
         git commit -m "rebuilding site $(date '+%Y/%m/%d %H:%M:%S')"
-        git push
-        
+        git push https://naotoman:${ACCESS_TOKEN}@github.com/naotoman/naotoman.github.io.git
