@@ -37,12 +37,14 @@ jobs:
         hugo
     - name: deploy
       working-directory: ./public
+      env:
+        EMAIL: ${{ secrets.EMAIL }}
       run: |
         echo deploy
         pwd
         git branch
         git config user.name "Naoto"
-        git config user.email "{{ }}"
+        git config user.email "$EMAIL"
         git add .
         git commit -m "rebuilding site $(date '+%Y/%m/%d %H:%M:%S')"
         git push
