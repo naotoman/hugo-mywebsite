@@ -93,7 +93,7 @@ def are_jsons_approx_equal(js1: JsonType, js2: JsonType, precision: int) -> bool
 ```
 
 This function returns `True` if `js` and `js2` are approximately equal.
-If Neither of them includes float values, if just returns the result of `js1 == js2`.
+If Neither of them includes float values, it just returns the result of `js1 == js2`.
 You can specify significant figures as `precision`.
 
 In addition, this function raises `TypeError` if one of `js1` or `js2` is not a valid json object.
