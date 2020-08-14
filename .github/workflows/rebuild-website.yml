@@ -10,11 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: install-hugo
+      working-directory: /tmp
       run: |
         echo install-hugo
         pwd
-        wget -O /tmp https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_0.74.3_Linux-64bit.deb
-        sudo apt install /tmp/hugo_0.74.3_Linux-64bit.deb
+        wget -y https://github.com/gohugoio/hugo/releases/download/v0.74.3/hugo_0.74.3_Linux-64bit.deb
+        sudo apt install ./hugo_0.74.3_Linux-64bit.deb
     - uses: actions/checkout@v2
       with:
         ref: test
