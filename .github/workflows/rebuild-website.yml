@@ -49,4 +49,4 @@ jobs:
         git config user.email "$EMAIL"
         git add .
         git commit -m "rebuilding site $(date '+%Y/%m/%d %H:%M:%S')"
-        git push https://${GITHUB_ACTOR}:${ACCESS_TOKEN}@github.com/naotoman/naotoman.github.io.git
+        git push https://natoman:${ACCESS_TOKEN}@github.com/naotoman/naotoman.github.io.git
