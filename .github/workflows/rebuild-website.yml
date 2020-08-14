@@ -3,7 +3,7 @@ name: rebuild-website
 on:
   push:
     branches:
-    - test
+    - master
 
 jobs:
   build-and-deploy:
@@ -16,12 +16,10 @@ jobs:
         sudo apt install ./hugo_0.74.3_Linux-64bit.deb
     - uses: actions/checkout@v2
       with:
-        ref: test
         submodules: true
     - uses: actions/checkout@v2
       with:
         repository: naotoman/naotoman.github.io
-        ref: test
         path: public
         persist-credentials: false
     - name: clean-public
@@ -42,8 +40,4 @@ jobs:
         git config user.email "$EMAIL"
         git add .
         git commit -m "rebuilding site $(date '+%Y/%m/%d %H:%M:%S')"
-        echo $ACCESS_TOKEN
-        git remote -v
-        pwd
-        ls
         git push https://naotoman:${ACCESS_TOKEN}@github.com/naotoman/naotoman.github.io.git
