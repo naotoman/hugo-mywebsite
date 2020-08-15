@@ -4,8 +4,8 @@ thumbnailImagePosition: left
 # thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
 metaAlignment: left
 coverMeta: out
-date: 2020-08-10T18:15:27+09:00
-showActions:    false
+date: 2020-08-10T18:15:27+0900
+showActions: false
 categories:
 - blog
 tags:
