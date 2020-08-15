@@ -1,7 +1,7 @@
 ---
 title: "Comparing two JSONs with float values in Python"
 thumbnailImagePosition: left
-# thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImage: /images/json.svg
 metaAlignment: left
 coverMeta: out
 date: 2020-08-10T18:15:27+0900

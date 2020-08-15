@@ -1,7 +1,7 @@
 ---
 title: "I made this site with an awesome static site generator Hugo!"
 thumbnailImagePosition: left
-# thumbnailImage: //d1u9biwaxjngwg.cloudfront.net/cover-image-showcase/city-750.jpg
+thumbnailImage: /images/gohugo.png
 metaAlignment: left
 coverMeta: out
 date: 2020-08-15T16:38:31+0900
