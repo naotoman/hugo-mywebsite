@@ -24,12 +24,9 @@ jobs:
         persist-credentials: false
     - name: clean-public
       working-directory: ./public
-      run: |
-        ls -A | grep -v -E '^.git$|^.gitignore$|^CNAME$' | xargs rm -rf
-        ls -A
+      run: ls -A | grep -v -E '^.git$|^.gitignore$|^CNAME$' | xargs rm -rf
     - name: run-hugo
-      run: |
-        hugo
+      run: hugo
     - name: deploy
       working-directory: ./public
       env:
@@ -39,5 +36,5 @@ jobs:
         git config user.name "Naoto"
         git config user.email "$EMAIL"
         git add .
-        git commit -m "rebuilding site $(date '+%Y/%m/%d %H:%M:%S')"
+        git commit -m "Rebuild site $(date '+%Y/%m/%d %H:%M:%S')"
         git push https://naotoman:${ACCESS_TOKEN}@github.com/naotoman/naotoman.github.io.git
