@@ -20,8 +20,8 @@ I will introduce the way to compare two JSONs with float values for approximate 
 ## Background
 I encountered the situation where I have to compare two json objects for equality in Python.
 But there was a problem.
-Each json objects may include float values and I wanted to assume two JSONs are equal if there is only a slight difference between those float values.
-As below, it's cannot be done with Python's builtin `==` operator.
+Each JSON object may include float values and I wanted to assume two JSONs are equal if there is only a slight difference between those float values.
+As below, it cannot be done with Python's builtin `==` operator.
 
 ```python
 js1 = {"a": 1.0000000000}
@@ -30,7 +30,7 @@ assert js1 == js2  # False
 ```
 
 Python also has builtin `json` module, but there seems to be no functions that can be used for this purpose.
-So, I decided to create a function for my own.
+So, I decided to create a function on my own.
 
 ## Definition of (approximate) equality
 Before we go, we have to define (approximate) equality of float values.
@@ -92,12 +92,12 @@ def are_jsons_approx_equal(js1: JsonType, js2: JsonType, precision: int) -> bool
     return new_js1 == new_js2
 ```
 
-This function returns `True` if `js` and `js2` are approximately equal.
+This function returns `True` if `js1` and `js2` are approximately equal.
 If Neither of them includes float values, it just returns the result of `js1 == js2`.
 You can specify significant figures as `precision`.
 
 In addition, this function raises `TypeError` if one of `js1` or `js2` is not a valid json object.
-For example, if the object has values of type `numpy.int64`, `set`, or keys of type `int`, it raises exception.
+For example, if the object has values of type `numpy.int64`, `set`, or keys of type `int`, it raises an exception.
 
 More about Json 
 - https://www.json.org/json-en.html
